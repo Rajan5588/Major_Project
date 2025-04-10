@@ -1,0 +1,140 @@
+<%layout("/layouts/boilerplate") %>
+
+
+<style>
+#filters{
+     display: flex;
+     flex-wrap: wrap;
+     align-items: center;
+}
+.filter{
+     text-align: center;
+     margin-top: 2rem;
+     margin-right: 2rem;
+     opacity: 0.7;
+     cursor: pointer;
+}
+
+.filte:hover{
+     opacity: 1;
+     cursor: pointer;
+}
+i{
+     color: rgb(224, 12, 76);
+
+}
+.filter p{
+     font-size: 0.8rem ;
+     color: rgb(248, 54, 5);
+}
+
+.text-info{
+     display: none;
+}
+.text-toggle{
+     display: flex;
+     align-items: center;
+     margin-left: rem;
+     border: 1px solid rgb(87, 84, 84);
+     border-radius: 2rem;
+     height: 2rem;
+     font-size: 1rem;
+     letter-spacing: 0;
+     padding: 0.5rem 1rem 0.5rem 1rem;
+
+}
+</style>
+
+
+          <!-- <h3>all Listings</h3> -->
+
+          <!-- <form method="get" action="/listings/new">
+          <button>Create New Listing</button>
+     </form> -->
+ 
+       <div id="filters" class="navbar-expand-md ">
+        <div class="filter">
+         <div><i class="fa-solid fa-fire"></i></div> 
+         <p>Trending</p> 
+        </div>
+        <div class="filter">
+          <div><i class="fa-solid fa-bed"></i></div> 
+          <p>Rooms</p> 
+         </div>
+         <div class="filter">
+          <div><i class="fa-solid fa-mountain-city"></i></div> 
+          <p>Iconic Cities</p> 
+         </div>
+         <div class="filter">
+          <div><i class="fa-solid fa-mountain-sun"></i></div> 
+          <p>Mountains</p> 
+         </div>
+         <div class="filter">
+          <div><i class="fa-solid fa-chess-rook"></i></div> 
+          <p>Castlest</p> 
+         </div>
+         <div class="filter">
+          <div><i class="fa-solid fa-water-ladder"></i></div> 
+          <p>Amazings Pools</p> 
+         </div>
+         <div class="filter">
+          <div><i class="fa-solid fa-campground"></i></div> 
+          <p>Campings</i></p> 
+         </div>
+         <div class="filter">
+          <div><i class="fa-solid fa-mountain-sun"></i></div> 
+          <p>Mountains Sun</p> 
+         </div>
+
+         <div class="filter">
+          <div><i class="fa-solid fa-snowflake"></i></div> 
+          <p>Actics</p> 
+         </div>
+        
+
+          <div class="text-toggle">
+               <div class="form-check-reverse form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                    <label class="form-check-label" for="switchCheckDefault">Display  Total After Taxes</label>
+                  </div>
+          </div>
+         </div>
+       </div>
+          <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+               <% for(let listing of allListings){%>
+                    <a href="/listings/<%=listing._id%>" class="listing-link">
+                         <div class="card card-listing col">
+                              <img src="<%=listing.image.url%>" class="card-img-top" alt="listing_image"
+                                   style="height:10rem" />
+                              <div class="card-img-overlay"></div>
+                              <div class="card-body">
+                                   <p class="card-text">
+                                        <b>
+                                             <%= listing.title%>
+                                        </b>
+                                        <br>
+                                        <b>&#8377;<%=listing.price.toLocaleString("en-IN")%>/Night</b>
+                                        <i class="text-info">&nbsp; &#8377;+20% GST</i>
+                                   </p>
+                              </div>
+                         </div>
+                         <% } %>
+
+          </div>
+
+
+          <script>
+               let textSwitch=document.querySelector("#switchCheckDefault");
+               textSwitch.addEventListener("click",()=>{
+         let textInfo=document.getElementsByClassName("text-info");
+         for(info of textInfo){
+          if(info.style.display!="inline"){
+               info.style.display="inline";
+          }else{
+               info.style.display="none";
+
+          }
+         }
+               })
+          </script>
+     
