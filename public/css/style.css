@@ -1,6 +1,6 @@
 
 body{
-     font-family: sans-serif !important;
+     font-family: sans-serif, !important;
      display: flex !important;
      flex-direction: column !important;
      min-height: 100vh !important;
@@ -118,3 +118,6 @@ body{
      height: 350px;
      border-radius: 2rem;
       }
+
+
+      

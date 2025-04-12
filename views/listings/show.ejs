@@ -12,13 +12,13 @@
      <div class="card col-6 offset-3 listing-card card-listing">
           <img src="<%=listing.image.url%>" class="card-img-top   show-img" alt="listingImage">
           <div class="card-body">
-            <p class="card-text">
-              <b style="color: rgba(109, 214, 11, 0.973);"> OWNERED BY: <%= listing.owner.username %></b>
+            <p class="card-text mt-2">
+              <b style="color: rgba(250, 32, 3, 0.973);"> OWNERED BY: <%= listing.owner.username %></b>
               <br><br>
               <b><%= listing.title %></b >
             <br>
             <%=listing.description%> <br >
-           <span style="color: rgb(43, 8, 196);"> &#8377;<%=listing.price.toLocaleString("en-IN")%>/Night </span><br>
+           <span style="color: rgb(180, 8, 103);"> &#8377;<%=listing.price.toLocaleString("en-IN")%>/Night </span><br>
             <%=listing.location%> <br>
             <%=listing.country%>
           </p>
@@ -26,7 +26,7 @@
      </div>
      <br>
    <div class="show-btn mb-4 mt-3"  >
-     <a class="btn btn-edit col-1 offset-3" href="/listings/<%=listing._id%>/edit">Edit</a>
+     <a class="btn btn-edit col-1 ms-0  offset-3" href="/listings/<%=listing._id%>/edit">Edit</a>
      <form method="post" action="/listings/<%=listing._id %>?_method=DELETE">
           <button class="btn btn-dark offset-5">Delete</button>
      </form>
@@ -78,7 +78,7 @@
 
    <% if(listing.reviews.length>0){ %>
 
-  <div class="row">
+  <div class="row ">
    <h3>All Review</h3>
       
       <%for(review of listing.reviews){%>
